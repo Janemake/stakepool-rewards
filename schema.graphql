@@ -1,0 +1,14 @@
+type Account @entity {
+  "account address"
+  id: ID! 
+  poolOwner: [StakePool]  @derivedFrom (field: "owner")
+}
+
+type StakePool @entity {
+  "pid"
+  id: ID!
+  owner: Account 
+  ownerRewards: BigDecimal!
+  delegatorRewards: BigDecimal!
+  totalRewards: BigDecimal!
+}
